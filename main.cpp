@@ -14,6 +14,9 @@ int main(int argc, char *argv[])
     qmlRegisterType<App>("Frozen", 1, 0, "App");
     qmlRegisterType<Foo>("Frozen", 1, 0, "Foo");
 
+    qRegisterMetaType<Foo*>("Foo*");
+    qRegisterMetaType<const Foo*>("const Foo*");
+
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
